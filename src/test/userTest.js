@@ -71,4 +71,50 @@ describe('User test', () => {
       });
     done();
   });
+  //= ================SIGNIN TESTS=================
+  it('should be able to signin', (done) => {
+    const user = {
+      email: 'aline@gmail.com',
+      password: 'ahi123',
+    };
+    chai.request(server)
+      .post('/api/v1/signin')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+        res.body.should.be.an('object');
+        res.body.message.should.be.equal('User is successfully signed in');
+      });
+    done();
+  });
+  it('should not be able to sign in when not signed up', (done) => {
+    const user = {
+      email: 'rugaza@gmail.com',
+      password: 'rugaza123',
+    };
+    chai.request(server)
+      .post('/api/v1/signin')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+        res.body.should.be.an('object');
+        res.body.error.should.be.equal('user not found');
+      });
+    done();
+  });
+  it('should not be able to signin when passwords do not matching', (done) => {
+    const user = {
+      email: 'ruhimbazab@gmail.com',
+      password: 'trash',
+    };
+    chai.request(server)
+      .post('/api/v1/signin')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(401);
+        res.body.should.be.an('object');
+        res.body.error.should.be.equal('Password do not match');
+      });
+    done();
+  });
 });

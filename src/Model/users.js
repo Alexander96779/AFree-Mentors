@@ -1,10 +1,12 @@
+import bcrypt from 'bcrypt-nodejs';
+
 const users = [
   {
     id: 1,
     firstName: 'ruhimbaza',
     lastName: 'Bertin',
     email: 'ruhimbazab@gmail.com',
-    password: 'rrr122',
+    password: bcrypt.hashSync('rrr122'),
     address: 'kigali',
     bio: 'scientist',
     occupation: 'software development',
@@ -16,7 +18,7 @@ const users = [
     firstName: 'ahishakiye',
     lastName: 'aline',
     email: 'aline@gmail.com',
-    password: 'ahi123',
+    password: bcrypt.hashSync('ahi123'),
     address: 'Nairobi',
     bio: 'researcher',
     occupation: 'advocacy',
@@ -28,12 +30,24 @@ const users = [
     firstName: 'ngarambe',
     lastName: 'antoine',
     email: 'kagorora1@gmail.com',
-    password: 'ngarambe',
+    password: bcrypt.hashSync('ngarambe'),
     address: 'legos',
     bio: 'something',
     occupation: 'maintenance',
     expertise: 'maintainning systems',
     userType: 'admin',
+  },
+  {
+    id: 4,
+    firstName: 'kalisa',
+    lastName: 'claude',
+    email: 'claude@gmail.com',
+    password: bcrypt.hashSync('claude123'),
+    address: 'Nairobi',
+    bio: 'researcher',
+    occupation: 'advocacy',
+    expertise: 'teaching',
+    userType: 'mentor',
   },
 ];
 
