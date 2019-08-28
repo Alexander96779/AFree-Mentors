@@ -11,5 +11,6 @@ app.get('/api/v1/mentors', auth, userController.viewAllMentors);
 app.get('/api/v1/mentors/:mentorId', auth, userController.specificMentor);
 app.post('/api/v1/session', auth, sessionController.createSession);
 app.patch('/api/v1/sessionAccept/:sessionId', auth, sessionController.acceptSession);
+app.patch('/api/v1/sessionDecline/:sessionId', auth, sessionController.declineSession);
 
 export default app;
