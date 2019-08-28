@@ -117,4 +117,25 @@ describe('User test', () => {
       });
     done();
   });
+  //= ================VIEW ALL MENTORS TESTS=================
+  it('should be able to view all mentors if admin or user', (done) => {
+    chai.request(server)
+      .get('/api/v1/mentors')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJlc3BlQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjczMDA0Nn0.i1nLeb0bqLhM7nBi77WQaP1vUtrgP88UeUPbZejkBR0')
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
+
+  it('should not be able to view all mentors if not admin or user', (done) => {
+    chai.request(server)
+      .get('/api/v1/mentors')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhbGluZUBnbWFpbC5jb20iLCJ1c2VyVHlwZSI6Im1lbnRvciIsImlhdCI6MTU2NjczMDc2NH0.-sfUK15Zr6IkzkTzfXgWVt8-twrnDFPNiDWz_eta-3A')
+      .end((err, res) => {
+        res.body.status.should.be.equal(403);
+        res.body.error.should.be.equal('unauthorized route');
+      });
+    done();
+  });
 });
