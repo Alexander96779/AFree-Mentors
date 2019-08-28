@@ -2,6 +2,7 @@ import express from 'express';
 import userController from '../Controller/userController';
 import sessionController from '../Controller/sessionController';
 import auth from '../autherisation/auth';
+import adminController from '../Controller/adminController';
 
 const app = express();
 
@@ -12,5 +13,6 @@ app.get('/api/v1/mentors/:mentorId', auth, userController.specificMentor);
 app.post('/api/v1/session', auth, sessionController.createSession);
 app.patch('/api/v1/sessionAccept/:sessionId', auth, sessionController.acceptSession);
 app.patch('/api/v1/sessionDecline/:sessionId', auth, sessionController.declineSession);
+app.get('/api/v1/allusers', auth, adminController.allUsers);
 
 export default app;
