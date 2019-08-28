@@ -138,4 +138,35 @@ describe('User test', () => {
       });
     done();
   });
+  //= ================SPECIFIC MENTOR TESTS=================
+  it('should be able to view specific mentor if user or admin', (done) => {
+    chai.request(server)
+      .get('/api/v1/mentors/4')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJlc3BlQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjczMDA0Nn0.i1nLeb0bqLhM7nBi77WQaP1vUtrgP88UeUPbZejkBR0')
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
+  it('should not be able to view specific mentor if logged in as mentor', (done) => {
+    chai.request(server)
+      .get('/api/v1/mentors/4')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhbGluZUBnbWFpbC5jb20iLCJ1c2VyVHlwZSI6Im1lbnRvciIsImlhdCI6MTU2NjczMDc2NH0.-sfUK15Zr6IkzkTzfXgWVt8-twrnDFPNiDWz_eta-3A')
+      .end((err, res) => {
+        res.body.status.should.be.equal(403);
+        res.body.error.should.be.equal('Admin and user have access');
+      });
+    done();
+  });
+
+  it('should not able to view specific mentor if not found', (done) => {
+    chai.request(server)
+      .get('/api/v1/mentors/100')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJlc3BlQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjczMDA0Nn0.i1nLeb0bqLhM7nBi77WQaP1vUtrgP88UeUPbZejkBR0')
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.equal('mentor not found');
+      });
+    done();
+  });
 });
