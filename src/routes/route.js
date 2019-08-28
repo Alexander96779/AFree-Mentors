@@ -14,5 +14,6 @@ app.post('/api/v1/session', auth, sessionController.createSession);
 app.patch('/api/v1/sessionAccept/:sessionId', auth, sessionController.acceptSession);
 app.patch('/api/v1/sessionDecline/:sessionId', auth, sessionController.declineSession);
 app.get('/api/v1/allusers', auth, adminController.allUsers);
+app.patch('/api/v1/user/:userId', auth, adminController.changeUserType);
 
 export default app;
