@@ -1,0 +1,39 @@
+{
+  "name": "AFree-Mentors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "nyc --reporter=html --reporter=text mocha --require babel-register --timeout 10000 --exit  src/test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexander96779/AFree-Mentors.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexander96779/AFree-Mentors/issues"
+  },
+  "homepage": "https://github.com/Alexander96779/AFree-Mentors#readme",
+  "dependencies": {
+    "@hapi/joi": "^15.1.1",
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^6.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
