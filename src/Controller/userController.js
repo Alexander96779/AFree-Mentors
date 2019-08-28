@@ -72,6 +72,22 @@ class userController {
       },
     });
   }
+
+  static viewAllMentors(req, res) {
+    if (req.user.userType === 'user' || req.user.userType === 'admin') {
+      const mentors = users.filter(user => user.userType === 'mentor');
+      return res.status(200).json({
+        status: 200,
+        data: {
+          mentors,
+        },
+      });
+    }
+    return res.status(403).json({
+      status: 403,
+      error: 'unauthorized route',
+    });
+  }
 }
 
 export default userController;
