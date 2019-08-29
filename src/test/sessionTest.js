@@ -61,6 +61,7 @@ describe('session test', () => {
     done();
   });
   //= =========================DECLINING SESSION TEST================
+
   it('should not be able to decline session if not mentor', (done) => {
     chai.request(server)
       .patch('/api/v1/sessionDecline/2')
