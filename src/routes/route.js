@@ -5,7 +5,7 @@ import auth from '../autherisation/auth';
 import adminController from '../Controller/adminController';
 
 const app = express();
-
+app.get('/', userController.welcome);
 app.post('/api/v1/signup', userController.signup);
 app.post('/api/v1/signin', userController.signin);
 app.get('/api/v1/mentors', auth, userController.viewAllMentors);

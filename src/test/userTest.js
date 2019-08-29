@@ -8,6 +8,14 @@ chai.should();
 
 // eslint-disable-next-line no-undef
 describe('User test', () => {
+  it('should be able to view homepage', (done) => {
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+      });
+    done();
+  });
   // eslint-disable-next-line no-undef
   it('should be able to sign up', (done) => {
     const user = {

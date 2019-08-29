@@ -6,6 +6,13 @@ import userValidation from '../helper/validation';
 
 dotenv.config();
 class userController {
+  static welcome(req, res) {
+    return res.status(200).json({
+      status: 200,
+      message: 'Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions',
+    });
+  }
+
   static signup(req, res) {
     const {
       firstName, lastName, email, password, address, bio, occupation, expertise, userType,
