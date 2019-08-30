@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "dev": "nodemon app.js",
+    "start": "node app.js",
     "test": "nyc --reporter=html --reporter=text mocha --require babel-register --timeout 10000 --exit  src/test/",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
