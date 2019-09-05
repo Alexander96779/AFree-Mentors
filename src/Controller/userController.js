@@ -58,7 +58,7 @@ class userController {
     if (!checkUser) {
       return res.status(404).json({
         status: 404,
-        error: 'user not found',
+        error: 'User not found',
       });
     }
     // eslint-disable-next-line max-len
@@ -67,7 +67,7 @@ class userController {
     if (!comparePassword) {
       return res.status(401).json({
         status: 401,
-        error: 'Password do not match',
+        error: 'Invalid email or password',
       });
     }
     return res.status(200).json({
@@ -92,7 +92,7 @@ class userController {
     }
     return res.status(403).json({
       status: 403,
-      error: 'unauthorized route',
+      error: 'Unauthorized route',
     });
   }
 
@@ -110,12 +110,12 @@ class userController {
       }
       return res.status(400).json({
         status: 400,
-        error: 'mentor not found',
+        error: 'Mentor not found',
       });
     }
     return res.status(403).json({
       status: 403,
-      error: 'Admin and user have access',
+      error: 'Admin and User have access',
     });
   }
 }

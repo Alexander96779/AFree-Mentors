@@ -7,3 +7,5 @@ coverage
 .env
 
 README.md
+
+package-lock.json
