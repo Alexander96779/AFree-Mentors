@@ -1,0 +1,247 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions",
+		"version": "1.0.0",
+		"title": "FREE MENTORS",
+		"termsOfService": "http://swagger.io/terms/",
+		"contact": {
+			"email": "niyialexp@gmail.com"
+		},
+		"license": {
+			"name": "MIT",
+			"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+		}
+	},
+	"host": "localhost:3000",
+	"basePath": "/api/v1",
+	"tags": [
+		{
+			"name": "user",
+			"description":"signup,signin"
+		},
+		{
+			"name": "Mentor",
+			"description":"view all mentor,view specific mentor"
+		}
+	],
+	"schemes": [
+
+		"http"
+	],
+	"paths": {
+		"/signup": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "Create user account",
+				"description": "This endpoint allows users to create accounts",
+				"operationId": "adduser",
+				"consumes": [
+					"application/json",
+					"application/xml"
+				],
+				"produces": [
+					"application/xml",
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "User object that needs to create account",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/signup"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Account created succefully"
+					},
+					"400": {
+						"description": "Bad request | Invalid input"
+					},
+					"401": {
+						"description": "User already exist"
+					},
+					"500": {
+						"description": "Server error"
+					}
+				}
+			}
+
+		},
+		"/signin": {
+			"post": {
+				"tags": [
+					"user"
+				],
+				"summary": "user signin",
+				"description": "This endpoint allows a created user to signin",
+				"operationId": "signin",
+				"consumes": [
+					"application/json",
+					"application/xml"
+				],
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "User's object that is needed to sign in a user'",
+						"required": true,
+						"schema": {
+	 
+						"$ref": "#/definitions/signin"
+							
+						}
+					}
+					
+				],
+				"responses": {
+					"200": {
+						"description": "sign in is successful"
+					},
+					"400": {
+						"description": "Bad request | invalid input"
+					},
+					"401": {
+						"description": "Incorrect credentials"
+					},		
+					"500": {
+						"description": "Server error"
+					}			
+				}
+			}
+		},
+		"/mentors": {
+			"get": {
+				"tags": [
+					"Mentor"
+				],
+				"summary": "view all mentors",
+				"description": "This endpoint allows user or admin to view all mentors",
+				"operationId": "viewmentor",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "token",
+						"in": "header",
+						"description": "The token of the user or admin to view all mentors",
+						"required": true,
+						"type": "string"
+
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "all mentor",
+						"type":"object",
+						"example":{
+							
+								"id":"1",
+								"firstName": "niyigena",
+								"lastName": "alexandre",
+								"email": "niyialexp@gmail.com",
+								"password": "alex123",
+								"address": "kigali",
+								"bio": "Hard work",
+								"occupation": "software developer",
+								"expertise": "web dev"  
+						}
+
+					},
+					"401": {
+						"description": "Only user and admin have access"
+					},
+					"404": {
+						"description": "No access to server"
+					},
+					"500": {
+						"description": "Server not found"
+					}
+				}
+				
+			}
+		}
+	},
+
+	"definitions": {
+		"signin": {
+			"type": "object",
+			"properties": {
+				"email": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				}
+
+			},
+			"xml": {
+				"name": "User"
+			}
+		},
+		
+		"signup": {
+			"type": "object",
+			"properties": {
+				"firstName": {
+					"type": "string"
+				},
+				"lastName": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				},
+				"address": {
+					"type": "string"
+				},
+				"bio":      {
+					"type": "string"	
+				},
+				"occupation": {
+					"type": "string"
+				},
+				"expertise": {
+					"type": "string"
+				}
+			},
+			"xml": {
+				"name": "User"
+			}
+		},
+		"sessions": {
+			"type": "object",
+			"properties": {
+				"mentorid": {
+					"type": "integer"
+				},
+				"questions": {
+					"type": "string"
+				}
+
+			}
+
+		}
+	},
+	"externalDocs": {
+		"description": "Find out more about Swagger",
+		"url": "http://swagger.io"
+	}
+
+}
+
+
