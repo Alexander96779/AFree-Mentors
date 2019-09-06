@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/Alexander96779/AFree-Mentors.svg?branch=develop)](https://travis-ci.org/Alexander96779/AFree-Mentors)
 [![Coverage Status](https://coveralls.io/repos/github/Alexander96779/AFree-Mentors/badge.svg?branch=ft-travisAndCoveralls-168165661)](https://coveralls.io/github/Alexander96779/AFree-Mentors?branch=ft-travisAndCoveralls-168165661)
+[![Maintainability](https://api.codeclimate.com/v1/badges/cc969713afbfcdd86d11/maintainability)](https://codeclimate.com/github/Alexander96779/AFree-Mentors/maintainability)
 # AFree-Mentors
 Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions
 # Getting Started
