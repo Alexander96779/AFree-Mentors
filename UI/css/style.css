@@ -116,6 +116,10 @@ input, select {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 30px;
 }
+.container h1 a{
+    text-decoration: none;
+    color: white;
+}
 .container ul {
     list-style-type: none;
     margin: 0;
@@ -172,7 +176,6 @@ footer{
     text-align: center;
     color: #ffffffff;
     background: #111;
-    padding: 10px;
     min-height: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
@@ -496,3 +499,56 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 .profile input[type=submit]:hover {
     background-color: #111;
 }
+
+
+:root {
+	--primary: rgb(12, 151, 70);
+	--dark: #ECF0F1;
+	--light: white;
+  }
+
+  html {
+	height: 100%;
+	box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+	box-sizing: inherit;
+  }
+  
+    footer{
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+    
+}
+
+@media(min-height:1000px){
+    footer{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      text-align: center;
+      
+    }
+
+  }
+
+  @media(max-width: 700px){
+    footer{
+		position: absolute;
+		display: block;
+		text-align: center;
+		line-height: 1.4;
+		width: 100%;
+	}
+}
+
