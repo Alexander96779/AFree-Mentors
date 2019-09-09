@@ -44,7 +44,7 @@ describe('admin test', () => {
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJlc3BlQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoiYWRtaW4iLCJpYXQiOjE1NjY1NjY4NTl9.HmLoL4qGIb6XAUVQZSi-Dcqiy8fgIOJLNB-ge9CjXgk')
       .end((err, res) => {
         res.body.status.should.be.equal(400);
-        res.body.error.should.be.equal('user is already a mentor or admin');
+        res.body.error.should.be.equal('User is already a mentor or admin');
       });
     done();
   });

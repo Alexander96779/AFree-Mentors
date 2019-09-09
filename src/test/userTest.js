@@ -106,7 +106,7 @@ describe('User test', () => {
       .end((err, res) => {
         res.body.status.should.be.equal(404);
         res.body.should.be.an('object');
-        res.body.error.should.be.equal('user not found');
+        res.body.error.should.be.equal('User not found');
       });
     done();
   });
@@ -121,7 +121,7 @@ describe('User test', () => {
       .end((err, res) => {
         res.body.status.should.be.equal(401);
         res.body.should.be.an('object');
-        res.body.error.should.be.equal('Password do not match');
+        res.body.error.should.be.equal('Invalid email or password');
       });
     done();
   });
@@ -142,7 +142,7 @@ describe('User test', () => {
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhbGluZUBnbWFpbC5jb20iLCJ1c2VyVHlwZSI6Im1lbnRvciIsImlhdCI6MTU2NjczMDc2NH0.-sfUK15Zr6IkzkTzfXgWVt8-twrnDFPNiDWz_eta-3A')
       .end((err, res) => {
         res.body.status.should.be.equal(403);
-        res.body.error.should.be.equal('unauthorized route');
+        res.body.error.should.be.equal('Unauthorized route');
       });
     done();
   });
@@ -162,7 +162,7 @@ describe('User test', () => {
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhbGluZUBnbWFpbC5jb20iLCJ1c2VyVHlwZSI6Im1lbnRvciIsImlhdCI6MTU2NjczMDc2NH0.-sfUK15Zr6IkzkTzfXgWVt8-twrnDFPNiDWz_eta-3A')
       .end((err, res) => {
         res.body.status.should.be.equal(403);
-        res.body.error.should.be.equal('Admin and user have access');
+        res.body.error.should.be.equal('Admin and User have access');
       });
     done();
   });
@@ -173,7 +173,7 @@ describe('User test', () => {
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJlc3BlQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjczMDA0Nn0.i1nLeb0bqLhM7nBi77WQaP1vUtrgP88UeUPbZejkBR0')
       .end((err, res) => {
         res.body.status.should.be.equal(400);
-        res.body.error.should.be.equal('mentor not found');
+        res.body.error.should.be.equal('Mentor not found');
       });
     done();
   });
